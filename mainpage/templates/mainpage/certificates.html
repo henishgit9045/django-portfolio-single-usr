@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Certificates</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  
+  
+  </head>
+  
+  <body id="page-top">
+  {% load static %}
+  <!-- Favicons -->
+  <link href="{% static 'mainpage/assets/img/favicon.png' %}" rel="icon">
+  <link href="{% static 'mainpage/assets/img/apple-touch-icon.png' %}" rel="apple-touch-icon">
+
+  <!-- Vendor CSS Files -->
+  <link href="{% static 'mainpage/assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'mainpage/assets/vendor/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet">
+  <link href="{% static 'mainpage/assets/vendor/ionicons/css/ionicons.min.css' %}" rel="stylesheet">
+  <link href="{% static 'mainpage/assets/vendor/owl.carousel/assets/owl.carousel.min.css' %}" rel="stylesheet">
+  <link href="{% static 'mainpage/assets/vendor/venobox/venobox.css' %}" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="{% static 'mainpage/assets/css/style.css' %}" rel="stylesheet">
+
+  <!-- ======= Header/ Navbar ======= -->
+  <nav class="navbar navbar-b navbar-trans navbar-expand-md fixed-top" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand js-scroll" href="#page-top">PortFolio</a>
+      <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarDefault" aria-controls="navbarDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <div class="navbar-collapse collapse justify-content-end" id="navbarDefault">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link js-scroll active" href="{% url 'henish' %}">Home</a>
+          </li>
+          <li>
+            <a class="nav-link js-scroll" href="#">Certificates</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="intro intro-single route bg-image" style="background-image: url({% static 'mainpage/assets/img/overlay-bg.jpg' %})">
+    <div class="overlay-mf"></div>
+    <div class="intro-content display-table">
+      <div class="table-cell">
+        <div class="container">
+          <h2 class="intro-title mb-4">Certificates</h2>
+          <ol class="breadcrumb d-flex justify-content-center">
+            <li class="breadcrumb-item">
+              <a href="{% url 'henish' %}">Home</a>
+            </li>
+            <li class="breadcrumb-item active">Certificates</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <main id="main">
+
+    <!-- ======= Portfolio Details Section ======= -->
+    {% if certificate %}
+    {% for certi in certificate %}
+    <section class="portfolio-details">
+      <div class="container">
+
+        <div class="portfolio-details-container">
+
+          <div class="portfolio-details-carousel">
+            <img src="/media/{{ certi.image }}" class="img-fluid" alt="">
+            
+          </div>
+
+          <div class="portfolio-info">
+            <h3>{{ certi.title }}</h3>
+            <ul>
+              <li><strong>Issuing Authority</strong>: {{ certi.issuing_authority }}</li>
+              <!-- <li><strong>Client</strong>: ASU Company</li> -->
+              <li><strong>Certificate ID</strong>: {{ certi.certi_id }}</li>
+              <li><strong>Certificate URL</strong>: <a href="{{ certi.url }}">{{ certi.url }}</a></li>
+            </ul>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Portfolio Details Section -->
+    {% endfor %}
+    {% else %}
+    <h1 style="text-align: center;">There Are No Certificates.</h1>
+    {% endif %}
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer style="">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="copyright-box">
+            <p class="copyright">&copy; Copyright <strong>HenishPatel</strong>. All Rights Reserved</p>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer><!-- End  Footer -->
+
+  <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="{% static 'mainpage/assets/vendor/jquery/jquery.min.js' %}"></script>
+  <script src="{% static 'mainpage/assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'mainpage/assets/vendor/jquery.easing/jquery.easing.min.js' %}"></script>
+  <script src="{% static 'mainpage/assets/vendor/php-email-form/validate.js' %}"></script>
+  <script src="{% static 'mainpage/assets/vendor/waypoints/jquery.waypoints.min.js' %}"></script>
+  <script src="{% static 'mainpage/assets/vendor/counterup/jquery.counterup.min.js' %}"></script>
+  <script src="{% static 'mainpage/assets/vendor/owl.carousel/owl.carousel.min.js' %}"></script>
+  <script src="{% static 'mainpage/assets/vendor/typed.js/typed.min.js' %}"></script>
+  <script src="{% static 'mainpage/assets/vendor/venobox/venobox.min.js' %}"></script>
+
+  <!-- Template Main JS File -->
+  <script src="{% static 'mainpage/assets/js/main.js' %}"></script>
+
+</body>
+
+</html>

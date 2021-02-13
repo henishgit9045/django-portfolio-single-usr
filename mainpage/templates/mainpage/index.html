@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta content="width=device-width, initial-scale=1.0" name="viewport" />
+
+		<title>{{ infor.name }}</title>
+		<meta content="" name="description" />
+		<meta content="" name="keywords" />
+	</head>
+
+	<body id="page-top">
+		<!-- static -->
+		{% load static %}
+		
+		<!-- Favicons -->
+		<link href="{% static 'mainpage/assets/img/favicon.png' %}" rel="icon" />
+		<link
+			href="{% static 'mainpage/assets/img/apple-touch-icon.png' %}"
+			rel="apple-touch-icon"
+		/>
+
+		<!-- Vendor CSS Files -->
+		<link
+			href="{% static 'mainpage/assets/vendor/bootstrap/css/bootstrap.min.css' %}"
+			rel="stylesheet"
+		/>
+		<link
+			href="{% static 'mainpage/assets/vendor/font-awesome/css/font-awesome.min.css' %}"
+			rel="stylesheet"
+		/>
+		<link
+			href="{% static 'mainpage/assets/vendor/ionicons/css/ionicons.min.css' %}"
+			rel="stylesheet"
+		/>
+		<link
+			href="{% static 'mainpage/assets/vendor/owl.carousel/assets/owl.carousel.min.css' %}"
+			rel="stylesheet"
+		/>
+		<link
+			href="{% static 'mainpage/assets/vendor/venobox/venobox.css' %}"
+			rel="stylesheet"
+		/>
+
+		<!-- Template Main CSS File -->
+		<link
+			href="{% static 'mainpage/assets/css/style.css' %}"
+			rel="stylesheet"
+		/>
+		<!-- ======= Header/ Navbar ======= -->
+		<nav
+			class="navbar navbar-b navbar-trans navbar-expand-md fixed-top"
+			id="mainNav"
+		>
+			<div class="container">
+				<a class="navbar-brand js-scroll" href="#page-top">PortFolio</a>
+				<button
+					class="navbar-toggler collapsed"
+					type="button"
+					data-toggle="collapse"
+					data-target="#navbarDefault"
+					aria-controls="navbarDefault"
+					aria-expanded="false"
+					aria-label="Toggle navigation"
+				>
+					<span></span>
+					<span></span>
+					<span></span>
+				</button>
+				<div
+					class="navbar-collapse collapse justify-content-end"
+					id="navbarDefault"
+				>
+					<ul class="navbar-nav">
+						<li class="nav-item">
+							<a class="nav-link js-scroll active" href="index.html">Home</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link js-scroll" href="#about">About</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link js-scroll" href="#service">Services</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link js-scroll" href="#work">Work</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link js-scroll" href="#blog">Blog</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link js-scroll" href="#contact">Contact</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link js-scroll" href="/admin/">LogIn</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+
+		<!-- ======= Intro Section ======= -->
+		<div
+			id="home"
+			class="intro route bg-image"
+			style="
+				background-image: url('../media/{{ infor.background_photo }}');
+			"
+		>
+			<div class="overlay-itro"></div>
+			<div class="intro-content display-table">
+				<div class="table-cell">
+					<div class="container">
+						<!--<p class="display-6 color-d">Hello, world!</p>-->
+						<h1 class="intro-title mb-4">I am {{ infor.name }}</h1>
+						<p class="intro-subtitle">
+							<span class="text-slider-items">{{ infor.description }}</span
+							><strong class="text-slider"></strong>
+						</p>
+						<!-- <p class="pt-3"><a class="btn btn-primary btn js-scroll px-4" href="#about" role="button">Learn More</a></p> -->
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- End Intro Section -->
+
+		<main id="main">
+			<!-- ======= About Section ======= -->
+			<section id="about" class="about-mf sect-pt4 route">
+				<div class="container">
+					<div class="row">
+						<div class="col-sm-12">
+							<div class="box-shadow-full">
+								<div class="row">
+									<div class="col-md-6">
+										<div class="row">
+											<div class="col-sm-6 col-md-5">
+												<div class="about-img">
+													<img
+														src="../media/{{ infor.profile_photo }}"
+														class="img-fluid rounded b-shadow-a"
+														alt="profile_photo"
+													/>
+												</div>
+											</div>
+
+											<div class="col-sm-6 col-md-7">
+												<div class="about-info">
+													<p>
+														<span class="title-s">Name: </span>
+														<span>{{ infor.name }}</span>
+													</p>
+													<p>
+														<span class="title-s">Profile: </span>
+														<span>{{ infor.post }}</span>
+													</p>
+													<p>
+														<span class="title-s">Email: </span>
+														<span>{{ infor.email }}</span>
+													</p>
+													<p>
+														<span class="title-s">Phone: </span>
+														<span>{{ infor.phone }}</span>
+													</p>
+												</div>
+											</div>
+										</div>
+										<div class="skill-mf" id="progress_area">
+											<p class="title-s">Skill</p>
+											{% if skills %}
+											{% for ski in skills %}
+											<span>{{ ski.split.0 }}</span>
+											<span class="hidden_pro pro1" style="visibility: hidden;">{{ ski.split.1 }}</span>
+											<span class="pull-right">{{ ski.split.1 }}%</span>
+											<div class="progress">
+												<div
+													class="progress-bar"
+													role="progressbar"
+													style="width: 1%"
+													
+													aria-valuemin="0"
+													aria-valuemax="100"
+													id="progress-1"
+												></div>
+											</div>
+											{% endfor %}
+											{% endif %}
+										</div>
+									</div>
+									<div class="col-md-6">
+										<div class="about-me pt-4 pt-md-0">
+											<div class="title-box-2">
+												<h5 class="title-left">About me</h5>
+											</div>
+											<p class="lead">{{ infor.about_me }}</p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<!-- End About Section -->
+
+			<!-- ======= Services Section ======= -->
+			<section id="service" class="services-mf pt-5 route">
+				<div class="container">
+					<div class="row">
+						<div class="col-sm-12">
+							<div class="title-box text-center">
+								<h3 class="title-a">Services</h3>
+								<p class="subtitle-a"></p>
+								<div class="line-mf"></div>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						{% for k in services %}
+						<div class="col-md-4">
+							<div class="service-box">
+								<div class="service-ico">
+									<span class="ico-circle"
+										><i class="fa fa-{{ k.2 }}"></i
+									></span>
+								</div>
+								<div class="service-content">
+									<h2 class="s-title">{{ k.0 }}</h2>
+									<p class="s-description text-center">{{ k.1 }}</p>
+								</div>
+							</div>
+						</div>
+						{% endfor %}
+					</div>
+				</div>
+			</section>
+			<!-- End Services Section -->
+
+			<!-- ======= Counter Section ======= -->
+			<div
+				class="section-counter paralax-mf bg-image"
+				style="
+					background-image: url(static/mainpage/assets/img/counters-bg.jpg);
+				"
+			>
+				<div class="overlay-mf"></div>
+				<div class="container">
+					<div class="row">
+						<div class="col-sm-3 col-lg-3">
+							<div class="counter-box counter-box pt-4 pt-md-0">
+								<div class="counter-ico">
+									<span class="ico-circle"
+										><i class="ion-checkmark-round"></i
+									></span>
+								</div>
+								<div class="counter-num">
+									<p class="counter">{{ infor.complete_work }}</p>
+									<span class="counter-text">WORKS COMPLETED</span>
+								</div>
+							</div>
+						</div>
+						<div class="col-sm-3 col-lg-3">
+							<div class="counter-box pt-4 pt-md-0">
+								<div class="counter-ico">
+									<span class="ico-circle"
+										><i class="ion-ios-calendar-outline"></i
+									></span>
+								</div>
+								<div class="counter-num">
+									<p class="counter">{{ infor.years_experiance }}</p>
+									<span class="counter-text">YEARS OF EXPERIENCE</span>
+								</div>
+							</div>
+						</div>
+						<div class="col-sm-3 col-lg-3">
+							<div class="counter-box pt-4 pt-md-0">
+								<a href="{% url 'certificates' %}"><div class="counter-ico">
+									<span class="ico-circle"><i class="fa fa-certificate"></i></span>
+								</div></a>
+								<div class="counter-num">
+									<p class="counter">{{ infor.certificates }}</p>
+									<span class="counter-text">TOTAL CERTIFICATES</span>
+								</div>
+							</div>
+						</div>
+						<div class="col-sm-3 col-lg-3">
+							<div class="counter-box pt-4 pt-md-0">
+								<div class="counter-ico">
+									<span class="ico-circle"><i class="ion-ribbon-a"></i></span>
+								</div>
+								<div class="counter-num">
+									<p class="counter">{{ infor.award_won }}</p>
+									<span class="counter-text">AWARD WON</span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- End Counter Section -->
+
+			<!-- ======= Portfolio Section ======= -->
+			<section id="work" class="portfolio-mf sect-pt4 route">
+				<div class="container">
+					<div class="row">
+						<div class="col-sm-12">
+							<div class="title-box text-center">
+								<h3 class="title-a">Projects</h3>
+								<p class="subtitle-a">
+									Projects Created by {{ infor.name }}.
+								</p>
+								<div class="line-mf"></div>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						{% if proj %}
+						{% for project in proj %}
+						<div class="col-md-4">
+							<div class="work-box">
+								<a
+									href="../media/{{ project.main_image }}"
+									
+									class="venobox"
+								>
+									<div class="work-img">
+										<img
+											src="../media/{{ project.main_image }}"
+											alt=""
+											class="img-fluid"
+										/>
+									</div>
+								</a>
+								<div class="work-content">
+									<div class="row">
+										<div class="col-sm-8">
+											<h2 class="w-title">{{ project.project_name }}</h2>
+											<div class="w-more">
+												<span class="w-ctegory">{{ project.project_category }}</span> /
+												<span class="w-date">{{ project.project_date }}</span>
+											</div>
+										</div>
+										<div class="col-sm-4">
+											<div class="w-like">
+												<a href="{% url 'projects:project_details' project.id %}">
+													<span class="ion-ios-plus-outline"></span
+												></a>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						{% endfor %}
+						{% else %}
+						<h1 style="font-size: xx-larger; font-weight: bold; text-align: center;">Currently There are Zero Projects in DataBase.</h1>
+						{% endif %}
+						</div>
+					</div>
+				</div>
+			</section>
+			<!-- End Portfolio Section -->
+
+			<!-- ======= Testimonials Section ======= -->
+			<!-- <div
+				class="testimonials paralax-mf bg-image"
+				style="background-image: url(assets/img/overlay-bg.jpg)"
+			>
+				<div class="overlay-mf"></div>
+				<div class="container">
+					<div class="row">
+						<div class="col-md-12">
+							<div id="testimonial-mf" class="owl-carousel owl-theme">
+								<div class="testimonial-box">
+									<div class="author-test">
+										<img
+											src="assets/img/testimonial-2.jpg"
+											alt=""
+											class="rounded-circle b-shadow-a"
+										/>
+										<span class="author">Xavi Alonso</span>
+									</div>
+									<div class="content-test">
+										<p class="description lead">
+											Curabitur arcu erat, accumsan id imperdiet et, porttitor
+											at sem. Lorem ipsum dolor sit amet, consectetur adipiscing
+											elit.
+										</p>
+										<span class="comit"><i class="fa fa-quote-right"></i></span>
+									</div>
+								</div>
+								<div class="testimonial-box">
+									<div class="author-test">
+										<img
+											src="assets/img/testimonial-4.jpg"
+											alt=""
+											class="rounded-circle b-shadow-a"
+										/>
+										<span class="author">Marta Socrate</span>
+									</div>
+									<div class="content-test">
+										<p class="description lead">
+											Curabitur arcu erat, accumsan id imperdiet et, porttitor
+											at sem. Lorem ipsum dolor sit amet, consectetur adipiscing
+											elit.
+										</p>
+										<span class="comit"><i class="fa fa-quote-right"></i></span>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div> -->
+			<!-- End Testimonials Section -->
+
+			<!-- ======= Blog Section ======= -->
+			<section id="blog" class="blog-mf sect-pt4 route">
+				<div class="container">
+					<div class="row">
+						<div class="col-sm-12">
+							<div class="title-box text-center">
+								<h3 class="title-a">Blog</h3>
+								<p class="subtitle-a">
+									<!-- Lorem ipsum, dolor sit amet consectetur adipisicing elit. -->
+								</p>
+								<div class="line-mf"></div>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						{% if blog %}
+						{% for bl in blog %}
+						<div class="col-md-4">
+							<div class="card card-blog">
+								<div class="card-img">
+									<a href="{% url 'blog:blogsingle' bl.id %}"
+										><img
+											src="../media/{{ bl.image }}"
+											alt=""
+											class="img-fluid"
+									/></a>
+								</div>
+								<div class="card-body">
+									<div class="card-category-box">
+										
+									</div>
+									<h3 class="card-title">
+										<a href="{% url 'blog:blogsingle' bl.id %}">{{ bl.title }}</a>
+									</h3>
+									<p class="card-description">
+										{{ bl.content|truncatechars:40 }}
+									</p>
+								</div>
+								<div class="card-footer">
+									<div class="post-author">
+										<a href="{% url 'blog:blogsingle' bl.id %}">
+											<img
+												src="../media/{{ infor.profile_photo }}"
+												alt=""
+												class="avatar rounded-circle"
+											/>
+											<span class="author">{{ bl.author }}</span>
+										</a>
+									</div>
+									<div class="post-date">
+										{{ bl.pub_date.date }}
+									</div>
+								</div>
+							</div>
+						</div>
+						{% endfor %}
+			
+						{% else %}
+						<h6 style="font-size: large; text-align: center;">There are Zero Blog in Database.</h6>
+						{% endif %}
+						<div style="width: 100%; margin: auto;">
+							<a href="{% url 'library' %}" class="btn btn-success btn-lg">All Blogs</a>
+						</div>
+					</div>
+				</div>
+			</section>
+			<!-- End Blog Section -->
+
+			<!-- ======= Contact Section ======= -->
+			<section
+				class="paralax-mf footer-paralax bg-image sect-mt4 route"
+				style="background-image: url(static/mainpage/assets/img/overlay-bg.jpg)"
+			>
+				<div class="overlay-mf"></div>
+				<div class="container">
+					<div class="row">
+						<div class="col-sm-12">
+							<div class="contact-mf">
+								<div id="contact" class="box-shadow-full">
+									<div class="row">
+										<div class="card-body">
+											{% if new_message %}
+											<div class="alert alert-success" role="alert">
+											  Thanks For sending us Message, We will reply ASAP.
+											</div>
+											{% else %}
+											
+												<h5 class="title-left">Send Us Message</h5>
+											
+											<form method="post" style="margin-top: 1.3em;">
+											  {{ contact_form.as_p }}
+											  {% csrf_token %}
+											  <div class="col-md-12 text-center">
+												<button
+													type="submit"
+													class="button button-a button-big button-rouded"
+												>
+													Send Message
+												</button>
+											</div>
+											</form>
+											{% endif %}
+										  </div>
+										<div class="col-md-6">
+											<div class="title-box-2 pt-4 pt-md-0">
+												<h5 class="title-left">Get in Touch</h5>
+											</div>
+											<div class="more-info">
+												<!-- <p class="lead">
+													Lorem ipsum dolor sit amet consectetur adipisicing
+													elit. Facilis dolorum dolorem soluta quidem expedita
+													aperiam aliquid at. Totam magni ipsum suscipit amet?
+													Autem nemo esse laboriosam ratione nobis mollitia
+													inventore?
+												</p> -->
+												<ul class="list-ico">
+													<li>
+														<span class="ion-ios-location"></span>{{ infor.address }}
+													</li>
+													<li>
+														<span class="ion-ios-telephone"></span>{{ infor.phone }}
+													</li>
+													<li>
+														<span class="ion-email"></span> {{ infor.email }}
+													</li>
+												</ul>
+											</div>
+											<div class="socials">
+												<ul>
+													<li>
+														<a href="{{ infor.facebook }}"
+															><span class="ico-circle"
+																><i class="ion-social-facebook"></i></span
+														></a>
+													</li>
+													<li>
+														<a href="{{ infor.instagram }}"
+															><span class="ico-circle"
+																><i class="ion-social-instagram"></i></span
+														></a>
+													</li>
+													<li>
+														<a href="{{ infor.github }}"
+															><span class="ico-circle"
+																><i class="fa fa-github"></i></span
+														></a>
+													</li>
+													<li>
+														<a href="{{ infor.whatsapp }}"
+															><span class="ico-circle"
+																><i class="fa fa-whatsapp"></i></span
+														></a>
+													</li>
+												</ul>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<!-- End Contact Section -->
+		</main>
+		<!-- End #main -->
+
+		<!-- ======= Footer ======= -->
+		<footer>
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-12">
+						<div class="copyright-box">
+							<p class="copyright">
+								&copy; Copyright <strong>HenishPatel</strong>. All Rights
+								Reserved
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</footer>
+		<!-- End  Footer -->
+
+		<a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+		<div id="preloader"></div>
+		<script src="{% static 'blog/maink.js' %}"></script>
+		<!-- Vendor JS Files -->
+		<script src="{% static 'mainpage/assets/vendor/jquery/jquery.min.js' %}"></script>
+		<script src="{% static 'mainpage/assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+		<script src="{% static 'mainpage/assets/vendor/jquery.easing/jquery.easing.min.js' %}"></script>
+		<script src="{% static 'mainpage/assets/vendor/php-email-form/validate.js' %}"></script>
+		<script src="{% static 'mainpage/assets/vendor/waypoints/jquery.waypoints.min.js' %}"></script>
+		<script src="{% static 'mainpage/assets/vendor/counterup/jquery.counterup.min.js' %}"></script>
+		<script src="{% static 'mainpage/assets/vendor/owl.carousel/owl.carousel.min.js' %}"></script>
+		<script src="{% static 'mainpage/assets/vendor/typed.js/typed.min.js' %}"></script>
+		<script src="{% static 'mainpage/assets/vendor/venobox/venobox.min.js' %}"></script>
+
+		<!-- Template Main JS File -->
+		<script src="{% static 'mainpage/assets/js/main.js' %}"></script>
+	</body>
+</html>
